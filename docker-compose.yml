@@ -1,0 +1,57 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypass
+      POSTGRES_DB: doc_rag_app
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - '5432:5432'
+
+  backend-node:
+    build: ./backend-node
+    container_name: backend-node
+    command: yarn dev
+    volumes:
+      - ./backend-node:/app
+    ports:
+      - '3000:3000'
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_USER: myuser
+      DB_PASS: mypass
+      DB_NAME: doc_rag_app
+      JWT_SECRET: supersecret
+
+  # backend-python:
+  #   build: ./backend-python
+  #   container_name: backend-python
+  #   command: uvicorn app:app --host 0.0.0.0 --port 8000 --reload
+  #   volumes:
+  #     - ./backend-python:/app
+  #   ports:
+  #     - '8000:8000'
+  #   depends_on:
+  #     - db
+
+  # frontend:
+  #   build: ./frontend
+  #   container_name: frontend
+  #   command: yarn dev --host
+  #   volumes:
+  #     - ./frontend:/app
+  #     - /app/node_modules
+  #   ports:
+  #     - '5173:5173'
+  #   depends_on:
+  #     - backend-node
+
+volumes:
+  pgdata:

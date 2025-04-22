@@ -1,0 +1,101 @@
+# Node modules and Python environments
+node_modules/
+bower_components/
+__pycache__/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.pnp.*
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Build outputs
+dist/
+build/
+out/
+.next/
+.nuxt/
+.cache/
+.parcel-cache/
+.serverless/
+target/
+docs/_build/
+.vuepress/dist
+
+# System files
+.DS_Store
+*.sublime*
+*.backup.*
+*.back.*
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage
+coverage/
+.nyc_output
+htmlcov/
+.tox/
+.nox/
+.coverage
+.cache
+.pytest_cache/
+.hypothesis/
+
+# Misc
+.idea/
+.vscode/
+*.tgz
+*.egg-info/
+.eggs/
+share/python-wheels/
+downloads/
+develop-eggs/
+lib/
+lib64/
+parts/
+sdist/
+wheels/
+profile_default/
+ipython_config.py
+celerybeat-schedule
+celerybeat.pid
+
+# Environment files
+.env
+.env.*
+instance/
+.webassets-cache
+
+# DB and runtime
+db.sqlite3
+db.sqlite3-journal
+.dynamodb/
+
+# Testing / Reports
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.dmypy.json
+.pytype/
+.pyre/
+.mypy_cache/
+cython_debug/
+scrapy/
+
+# Python specific
+__pypackages__/
+.Python
+
+# Static analysis
+.tern-port
