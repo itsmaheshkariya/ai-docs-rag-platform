@@ -1,12 +1,12 @@
 import { Router } from 'express';
-import { register, login } from '../controllers/authController';
+import { registerUser, loginUser } from '@/controllers/authController';
 
 const router = Router();
 
 /**
  * @swagger
  * tags:
- *   name: Auth
+ *   name: Authentication
  *   description: Authentication endpoints
  */
 
@@ -15,7 +15,7 @@ const router = Router();
  * /auth/register:
  *   post:
  *     summary: Register a new user
- *     tags: [Auth]
+ *     tags: [Authentication]
  *     requestBody:
  *       required: true
  *       content:
@@ -33,16 +33,16 @@ const router = Router();
  *                 type: string
  *     responses:
  *       200:
- *         description: User registered
+ *         description: User registered successfully
  */
-router.post('/register', register);
+router.post('/register', registerUser);
 
 /**
  * @swagger
  * /auth/login:
  *   post:
  *     summary: Log in a user
- *     tags: [Auth]
+ *     tags: [Authentication]
  *     requestBody:
  *       required: true
  *       content:
@@ -59,8 +59,8 @@ router.post('/register', register);
  *                 type: string
  *     responses:
  *       200:
- *         description: JWT token returned
+ *         description: JWT token returned successfully
  */
-router.post('/login', login);
+router.post('/login', loginUser);
 
 export default router;

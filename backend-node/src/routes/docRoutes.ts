@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import { uploadDoc, getDocs } from '../controllers/documentController';
-import { authenticateJWT } from '../middleware/authMiddleware';
+import { uploadDoc, getDocs, deleteDocument, updateDocument } from '@/controllers/documentController';
+import { authenticateJWT } from '@/middleware/authMiddleware';
 
 const router = Router();
 
@@ -56,5 +56,63 @@ router.post('/upload', uploadDoc);
  *         description: Unauthorized
  */
 router.get('/', getDocs);
+
+/**
+ * @swagger
+ * /documents/{id}:
+ *   delete:
+ *     summary: Delete a document
+ *     tags: [Documents]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - name: id
+ *         in: path
+ *         required: true
+ *         description: ID of the document to delete
+ *         schema:
+ *           type: integer
+ *     responses:
+ *       200:
+ *         description: Document deleted successfully
+ *       404:
+ *         description: Document not found
+ */
+router.delete('/:id', deleteDocument);
+
+/**
+ * @swagger
+ * /documents/{id}:
+ *   patch:
+ *     summary: Update a document
+ *     tags: [Documents]
+ *     security:
+ *       - bearerAuth: []
+ *     parameters:
+ *       - name: id
+ *         in: path
+ *         required: true
+ *         description: ID of the document to update
+ *         schema:
+ *           type: integer
+ *     requestBody:
+ *       required: false
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               title:
+ *                 type: string
+ *               status:
+ *                 type: string
+ *                 example: "PROCESSING"
+ *     responses:
+ *       200:
+ *         description: Document updated successfully
+ *       404:
+ *         description: Document not found
+ */
+router.patch('/:id', updateDocument);
 
 export default router;

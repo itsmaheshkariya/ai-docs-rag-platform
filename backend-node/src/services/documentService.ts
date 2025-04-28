@@ -1,4 +1,4 @@
-import { Document } from '../models/Document';
+import { Document } from '@/models/Document';
 
 export const uploadDocument = async (title: string, ownerId: number) => {
   return Document.create({ title, ownerId });

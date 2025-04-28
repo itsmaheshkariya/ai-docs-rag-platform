@@ -1,9 +1,10 @@
 import { Request, Response, NextFunction } from 'express';
 
 export const authorizeRole = (role: string) => {
-  return (req: Request, res: Response, next: NextFunction) => {
+  return (req: Request, res: Response, next: NextFunction): void => {
     if (req.user?.role !== role) {
-      return res.status(403).json({ error: 'Access denied' });
+      res.status(403).json({ error: 'Access denied' });
+      return;
     }
     next();
   };
