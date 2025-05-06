@@ -10,9 +10,6 @@ jobs:
   backend-node-tests:
     name: 🧪 Backend Node Tests
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./backend-node
 
     steps:
       - name: 📥 Checkout repo
@@ -22,20 +19,18 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: yarn
 
-      - name: 📦 Install deps
+      - name: 📦 Install backend-node deps
+        working-directory: backend-node
         run: yarn install
 
-      - name: 🧪 Run tests
+      - name: 🧪 Run backend tests
+        working-directory: backend-node
         run: yarn test
 
   frontend-check:
-    name: 💻 Frontend Build Check
+    name: 💻 UI Lint + Build
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./ui
 
     steps:
       - name: 📥 Checkout repo
@@ -45,12 +40,13 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
-          cache: yarn
 
-      - name: 📦 Install deps
+      - name: 📦 Install UI deps
+        working-directory: ui
         run: yarn install
 
-      - name: 🔧 Lint and Build
+      - name: 🔧 Lint & Build UI
+        working-directory: ui
         run: |
           yarn lint
           yarn build
