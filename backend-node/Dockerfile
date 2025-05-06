@@ -18,7 +18,7 @@ RUN yarn add ts-node-dev --dev
 ENV PATH="./node_modules/.bin:$PATH"
 
 # Expose port
-EXPOSE 3000
+EXPOSE 3001
 
 # Start app
 CMD ["ts-node-dev", "--respawn", "--transpile-only", "--require", "tsconfig-paths/register", "src/index.ts"]
