@@ -9,10 +9,21 @@ A multi-backend Retrieval-Augmented Generation (RAG) platform for document Q&A, 
 ### 📦 Prerequisites
 
 - Docker & Docker Compose
-- Node.js (v16+)
+- Node.js (v18+)
 - Python (v3.11+)
 
 ---
+
+### 📦 Rename Enviroment files
+
+```
+cp .env.local .env
+cp ./backend-node/.env.local ./backend-node/.env
+cp ./backend-python/.env.local ./backend-python/.env
+```
+
+---
+
 
 ## 🚀 Getting Started
 
