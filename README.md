@@ -82,6 +82,16 @@ Main features:
 
 ---
 
+## ✅ Project Status
+
+### ✔️ Completed
+- [x] 🐍 Python Backend Code (FastAPI + TogetherAI)
+- [x] 🧠 Node.js Backend Code (Ingestion, Query APIs)
+
+### ⏳ In Progress / Remaining
+- [ ] 💻 Connecting UI with Backend APIs (Document upload, Ask question, Results display)
+
+
 ## 🧑‍💻 Contributors
 
 - [@mahesh.kariya](mailto:itsmaheshkariya@gmail.com)
